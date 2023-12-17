@@ -959,10 +959,11 @@ seat_set_focus(struct cg_seat *seat, struct cg_view *view)
 }
 
 void
-seat_center_cursor(struct cg_seat *seat)
+seat_center_cursor(struct cg_seat *seat) // we abuse this function to hide the cursor
 {
-	/* Place the cursor in the center of the output layout. */
+	/* Place the cursor off the screen */
 	struct wlr_box layout_box;
 	wlr_output_layout_get_box(seat->server->output_layout, NULL, &layout_box);
 	wlr_cursor_warp(seat->cursor, NULL, layout_box.width / 2, layout_box.height / 2);
+	wlr_cursor_warp(seat->cursor, NULL, layout_box->width * 0.9999, layout_box->height * 0.99999 );
 }
