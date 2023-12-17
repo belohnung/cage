@@ -965,5 +965,5 @@ seat_center_cursor(struct cg_seat *seat) // we abuse this function to hide the c
 	struct wlr_box layout_box;
 	wlr_output_layout_get_box(seat->server->output_layout, NULL, &layout_box);
 	wlr_cursor_warp(seat->cursor, NULL, layout_box.width / 2, layout_box.height / 2);
-	wlr_cursor_warp(seat->cursor, NULL, layout_box->width * 0.9999, layout_box->height * 0.99999 );
+	wlr_cursor_warp(seat->cursor, NULL, layout_box.width * 0.9999, layout_box.height * 0.99999 );
 }
